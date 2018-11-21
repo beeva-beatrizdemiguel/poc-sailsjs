@@ -19,7 +19,7 @@ module.exports = {
     country: { type: 'string', required: true },
     sinopsis: { type: 'string', required: true },
     rating: { type: 'number', required: true, min: 1, max: 10 },
-    publisher: { type: 'string', required: true }
+    publisher: { type: 'string', required: true },
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
@@ -29,7 +29,8 @@ module.exports = {
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
-
+    cast: { collection: 'artist', via: 'starredIn' },
+    director: { model: 'artist' }
   },
 
 };

@@ -16,7 +16,7 @@ module.exports = {
     birthDate: { type: 'string', required: true, isAfter: new Date('01-01-1900') },
     nationality: { type: 'string', required: true },
     photo: { type: 'string', required: false },
-    gender: { type: 'string', required: true, isIn: ['M', 'F'] }
+    gender: { type: 'string', required: true, isIn: ['M', 'F'] },
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
@@ -26,7 +26,8 @@ module.exports = {
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
-
+    starredIn: { collection: 'movie', via: 'cast' },
+    directed: { collection: 'movie', via: 'director' }
   },
 
 };
