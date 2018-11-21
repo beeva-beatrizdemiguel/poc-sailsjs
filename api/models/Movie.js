@@ -15,10 +15,10 @@ module.exports = {
     title: { type: 'string', required: true },
     duration: { type: 'number', required: true },
     poster: { type: 'string', required: false },
-    year: { type: 'number', required: true },
+    year: { type: 'number', required: true, min: 1900 },
     country: { type: 'string', required: true },
     sinopsis: { type: 'string', required: true },
-    rating: { type: 'number', required: true },
+    rating: { type: 'number', required: true, min: 1, max: 10 },
     publisher: { type: 'string', required: true }
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
