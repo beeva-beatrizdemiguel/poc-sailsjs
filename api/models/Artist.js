@@ -12,7 +12,7 @@ module.exports = {
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-    fullName: { type: 'string', required: true, },
+    fullName: { type: 'string', required: true },
     birthDate: { type: 'string', required: true },
     nationality: { type: 'string', required: true },
     photo: { type: 'string', required: false },
