@@ -17,7 +17,7 @@ module.exports = {
     poster: { type: 'string', required: false },
     year: { type: 'number', required: true, min: 1900 },
     country: { type: 'string', required: true },
-    sinopsis: { type: 'string', required: true },
+    synopsis: { type: 'string', required: true },
     rating: { type: 'number', required: true, min: 1, max: 10 },
     publisher: { type: 'string', required: true },
 
