@@ -44,7 +44,8 @@ module.exports.routes = {
   //  ╠═╣╠═╝║  ║╣ ║║║ ║║╠═╝║ ║║║║║ ║ ╚═╗
   //  ╩ ╩╩  ╩  ╚═╝╝╚╝═╩╝╩  ╚═╝╩╝╚╝ ╩ ╚═╝
   'GET /artist/:artistId/co-starring': { action: 'artist/co-starring' },
-  'GET /user/:name/login': { action: 'user/login' }
+  'GET /user/:name/login': { action: 'user/login' },
+  'GET /user/logout': { action: 'user/logout' }
 
 
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗
