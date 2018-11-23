@@ -17,6 +17,23 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  // '*': true,
+  '*': false,
 
+  'user/*': 'is-admin',
+
+  'user/login': true,
+
+  'user/logout': 'is-logged-in',
+
+  'artist/*': 'is-logged-in',
+  'movie/*': 'is-logged-in',
+
+  'artist/destroy': 'is-admin',
+  'movie/destroy': 'is-admin',
+
+  'artist/find': true,
+  'artist/findOne': true,
+  'movie/find': true,
+  'movie/findOne': true,
+  'artist/co-starring': true
 };
