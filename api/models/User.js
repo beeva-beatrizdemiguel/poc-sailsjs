@@ -12,8 +12,8 @@ module.exports = {
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-    name: { type: 'string', required: true },
-    password: { type: 'string', required: true, encrypt: true },
+    name: { type: 'string', required: true, unique: true },
+    password: { type: 'string', required: true, protect: true },
     isAdmin: { type: 'boolean', required: false, defaultsTo: false }
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗

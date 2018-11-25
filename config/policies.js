@@ -22,6 +22,7 @@ module.exports.policies = {
   'user/*': 'is-admin',
 
   'user/login': true,
+  'user/signup': true,
 
   'user/logout': 'is-logged-in',
 

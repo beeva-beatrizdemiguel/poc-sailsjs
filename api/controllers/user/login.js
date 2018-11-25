@@ -37,18 +37,25 @@ module.exports = {
 
 
   fn: async function (inputs, exits) {
-    const user = await User.findOne({ name: inputs.name }).decrypt();
 
-    if(!user) {
-      return exits.badRequest();
+    var userRecord = await User.findOne({
+      name: inputs.name.toLowerCase(),
+    });
+
+    // If there was no matching user, respond thru the "badCombo" exit.
+    if(!userRecord) {
+      throw 'badCombo';
     }
 
-    await sails.helpers.passwords.checkPassword(inputs.password, user.password).intercept('incorrect', 'badRequest');
+    // If the password doesn't match, then also exit thru "badCombo".
+    await sails.helpers.passwords.checkPassword(inputs.password, userRecord.password)
+    .intercept('incorrect', 'badCombo');
 
-    this.req.session.userId = user.id;
+    // Modify the active session instance.
+    this.req.session.userId = userRecord.id;
 
-    return exits.success('Log in OK');
-
+    // Send success response (this is where the session actually gets persisted)
+    return exits.success();
   }
 
 
