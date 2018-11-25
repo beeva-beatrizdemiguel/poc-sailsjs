@@ -2,7 +2,7 @@
   "name": "beevafinity",
   "private": true,
   "version": "0.0.0",
-  "description": "a Sails application",
+  "description": "Sails demo application",
   "keywords": [],
   "dependencies": {
     "@sailshq/connect-redis": "^3.2.1",
@@ -30,9 +30,9 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/alberto.matias/beevafinity.git"
+    "url": "https://github.com/beeva-beatrizdemiguel/poc-sailsjs.git"
   },
-  "author": "alberto.matias",
+  "author": "Alberto Matías, Beatriz de Miguel",
   "license": "",
   "engines": {
     "node": ">=8.9"
