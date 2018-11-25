@@ -70,7 +70,9 @@ module.exports = {
       * https://sailsjs.com/config/datastores                                     *
       *                                                                           *
       ****************************************************************************/
-      // ssl: true,
+      adapter: 'sails-postgresql',
+      url: 'postgres://cytkhdbmznuntj:26b8b10dfabdf168418ec212da9d568e9418788932de6fa823dab390589b8a1d@ec2-54-246-117-62.eu-west-1.compute.amazonaws.com:5432/d6hptue6c5stp2',
+      ssl: true,
 
     },
 
@@ -148,9 +150,10 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     cors: {
-      // allowOrigins: [
-      //   'https://example.com',
-      // ]
+      allowOrigins: [
+        'http://localhost',
+        'https://poc-sailsjs.herokuapp.com'
+      ]
     },
 
   },
@@ -250,10 +253,10 @@ module.exports = {
     * > Be sure to use the right protocol!  ("http://" vs. "https://")         *
     *                                                                          *
     ***************************************************************************/
-    // onlyAllowOrigins: [
-    //   'https://example.com',
-    //   'https://staging.example.com',
-    // ],
+    onlyAllowOrigins: [
+      'http://localhost',
+      'https://poc-sailsjs.herokuapp.com'
+    ],
 
 
     /***************************************************************************
@@ -322,7 +325,7 @@ module.exports = {
     * (https://sailsjs.com/config/http)                                        *
     *                                                                          *
     ***************************************************************************/
-    // trustProxy: true,
+    trustProxy: true,
 
   },
 
@@ -371,7 +374,7 @@ module.exports = {
   *                                                                         *
   ***************************************************************************/
   custom: {
-    baseUrl: 'https://example.com',
+    baseUrl: '/',
     internalEmailAddress: 'support@example.com',
 
     // mailgunDomain: 'mg.example.com',
