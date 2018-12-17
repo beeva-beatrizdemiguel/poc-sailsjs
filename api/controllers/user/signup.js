@@ -41,26 +41,30 @@ module.exports = {
 
   fn: async function (inputs, exits) {
 
-    var newName = inputs.name.toLowerCase();
+    const newName = inputs.name.toLowerCase();
 
     // Build up data for the new user record and save it to the database.
     // (Also use `fetch` to retrieve the new ID so that we can use it below.)
-    var newUserRecord = await User.create({
-      name: newName,
-      isAdmin: inputs.isAdmin,
-      password: await sails.helpers.passwords.hashPassword(inputs.password)
-    })
-    .intercept('E_UNIQUE', 'nameAlreadyInUse')
-    .intercept({ name: 'UsageError'}, 'invalid')
-    .fetch();
+    try {
+      const newUserRecord = await User.create({
+        name: newName,
+        isAdmin: inputs.isAdmin,
+        password: await sails.helpers.passwords.hashPassword(inputs.password)
+      })
+      .intercept('E_UNIQUE', 'nameAlreadyInUse')
+      .intercept({ name: 'UsageError'}, 'invalid')
+      .fetch();
 
-    sails.log.info('User created successfully');
+      sails.log.info('User created successfully');
 
-    // Store the user's new id in their session.
-    this.req.session.userId = newUserRecord.id;
+      // Store the user's new id in their session.
+      this.req.session.userId = newUserRecord.id;
 
-    // Since everything went ok, send our 200 response.
-    return exits.success();
+      // Since everything went ok, send our 200 response.
+      return exits.success();
+    } catch(e) {
+      sails.log.info({e});
+    }
 
   }
 

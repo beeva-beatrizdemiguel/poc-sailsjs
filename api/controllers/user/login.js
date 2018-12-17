@@ -31,6 +31,12 @@ module.exports = {
     badRequest: {
       description: '',
       responseType: 'badRequest'
+    },
+
+    badCombo: {
+      description: `The provided email and password combination does not
+      match any user in the database.`,
+      responseType: 'unauthorized'
     }
 
   },
@@ -42,20 +48,24 @@ module.exports = {
       name: inputs.name.toLowerCase(),
     });
 
-    // If there was no matching user, respond thru the "badCombo" exit.
     if(!userRecord) {
       throw 'badCombo';
     }
 
-    // If the password doesn't match, then also exit thru "badCombo".
-    await sails.helpers.passwords.checkPassword(inputs.password, userRecord.password)
-    .intercept('incorrect', 'badCombo');
+    try {
+      await sails.helpers.passwords.checkPassword(inputs.password, userRecord.password)
+      .intercept('incorrect', 'badCombo');
 
-    // Modify the active session instance.
-    this.req.session.userId = userRecord.id;
+      // Modify the active session instance.
+      this.req.session.userId = userRecord.id;
 
-    // Send success response (this is where the session actually gets persisted)
-    return exits.success();
+      // Send success response (this is where the session actually gets persisted)
+      return exits.success();
+
+    } catch(e) {
+      throw 'badCombo';
+    }
+
   }
 
 
